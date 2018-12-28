@@ -1,8 +1,12 @@
 package main
-
-import "fmt"
-import "os"
-import "net/http"
+import(
+	"fmt"
+	"os"
+	"net/http"
+	"time"
+)
+const monitoramentos = 3
+const delay = 5
 
 func main(){
 	for{
@@ -10,6 +14,7 @@ func main(){
 	lerEntrada()
 	}
 }
+
 func validaEntrada(entrada int){
 	switch entrada {
 	case 1:
@@ -39,31 +44,29 @@ func exibeMenu(){
 	fmt.Println("1- Monitoramento \n2- Exibir logs \n9- Sair")
 }
 
-//fazer requisições HTTP, para fazer o monitoramento do site escolhido
+//fazer requisições HTTP, para fazer o monitoramento do site escolhido e define o tempo para testar
 func iniciarMonitoramento(){
 	fmt.Println("Monitorando....")
-	site := escolhaDoSite(getSites())
-	testaSite(site)
 
+	for i:=0; i<monitoramentos;i++{
+	site := escolhaDoSite(i,getSites())
+	fmt.Println("Testando o site ",site)
+	testaSite(site)
+	time.Sleep(delay * time.Second)
+	}
 }
 
 func testaSite(site string){
 	resp,_ := http.Get(site)
 	if resp.StatusCode == 200{
-		fmt.Println("Site",site,"foi carregado com sucesso")
+		fmt.Println("Site foi carregado com sucesso")
 	}else{
-		fmt.Println("Site ",site)
 		fmt.Println("Chama o SAMUUU  \nStatus Code",resp.StatusCode)
 	}
 }
 
-func escolhaDoSite(sites[]string)string{
-
-	for i,site:=range sites{
-		fmt.Println(i,site)
-		return site
-	}
-	return "https://random-status-code.herokuapp.com/"
+func escolhaDoSite(i int,sites[]string)string{
+	return sites[i]
 }
 
 func getSites()[]string{
