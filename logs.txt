@@ -1,0 +1,10 @@
+02/01/2019 15:29:33 - Site: www.google.com - status: Site está fora do ar
+02/01/2019 15:29:36 - Site: https://random-status-code.herokuapp.com/ - status: Site está fora do ar
+02/01/2019 15:29:43 - Site: https://www.meetup.com/pt-BR/bluetalks/events - status: No ar
+02/01/2019 15:29:48 - Site: https://www.google.com/ - status: No ar
+02/01/2019 15:29:55 - Site: https://github.ibm.com/ - status: No ar
+02/01/2019 15:39:02 - Site: www.google.com - status: Site está fora do ar
+02/01/2019 15:39:38 - Site: www.google.com - status: Site está fora do ar
+02/01/2019 15:39:44 - Site: https://random-status-code.herokuapp.com/ - status: Site está fora do ar
+02/01/2019 15:40:21 - Site: www.google.com - status: Site está fora do ar
+02/01/2019 15:41:00 - Site: www.google.com - status: Site está fora do ar
